@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- vue+element -->
+    <script src="javascript/vue+jquery+element/vue.min.js"></script>
+    <link href="javascript/vue+jquery+element/index.css" rel="stylesheet">
+    <script src="javascript/vue+jquery+element/index.js"></script>
+    <script src="javascript/vue+jquery+element/jquery.min.js"></script>
+
+    <link
+        href="https://at.alicdn.com/t/c/font_3964206_m2e6kjvsnr.css?spm=a313x.7781069.1998910419.52&file=font_3964206_m2e6kjvsnr.css">
+
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <el-container>
+            <el-header class="header">
+                <div class="header_left">
+                    <img class="logo" :src="`images/${user.logo}.png`">
+                    <div>
+                        <p>{{user.tel}}</p>
+                        <p>{{user.phone}}</p>
+                    </div>
+                </div>
+                <div class="header_menu">
+                    <ul>
+                        <li v-for="(item,index) in menu" :key="index">
+                            <span>{{item.name}}</span>
+                            <div class="menu_children">
+                                <a v-for="(item1,index1) in item.children" :key="index1" href="#">{{item1.name}}</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header_right">
+                    <el-bottom>
+                        <i class="iconfont icon-xitong"></i>
+                        系统入口
+                    </el-bottom>
+                </div>
+            </el-header>
+            <el-main class="main">
+                <iframe class="content" :src="iframe"></iframe>
+            </el-main>
+            <el-footer class="footer">
+                1515151
+            </el-footer>
+        </el-container>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                user: {
+                    logo: 'icon',
+                    tel: '023-62***15',
+                    phone: '183****1234'
+                },
+                menu: [
+                    {
+                        id: 1,
+                        name: '首页',
+                        children: []
+                    }, {
+                        id: 1,
+                        name: '首页',
+                        children: []
+                    }
+                ],
+                iframe: 'index.html',
+            },
+            // 创建
+            created () {
+                console.log(this.user)
+            },
+            // 初始化完成
+            mounted () {
+
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
