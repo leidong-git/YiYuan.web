@@ -22,7 +22,7 @@
     <script src="javascript/wow+animate/wow.min.js"></script>
 
     <link rel="stylesheet"
-        href="https://at.alicdn.com/t/c/font_3964206_m2e6kjvsnr.css?spm=a313x.7781069.1998910419.52&file=font_3964206_m2e6kjvsnr.css">
+        href="https://at.alicdn.com/t/c/font_3964206_qptw14k9cs.css?spm=a313x.7781069.1998910419.52&file=font_3964206_qptw14k9cs.css">
 
 </head>
 
@@ -40,7 +40,7 @@
         </div>
 
         <!-- 工程案例 -->
-        <div class="index_cont project wow animate__fadeInDown" data-wow-duration="1s" data-wow-iteration="1">
+        <div class="index_cont project">
             <div class="index_cont_nr">
                 <div class="index_title">
                     <p class="index_title_xian_left"></p>
@@ -49,12 +49,40 @@
                     <span class="title_xq">做最懂医疗且最受欢迎的物联网服务企业</span>
                 </div>
                 <div class="project_content">
-                    <div v-for="(item,index) in project_data" :class="`project_content_list item${index+1}`">
+                    <div @click="Project_Click(item)" v-for="(item,index) in project_data" data-wow-duration="1s"
+                        data-wow-iteration="1" :class="`project_content_list item${index+1} ${
+                            index == 0 ? 'wow animate__fadeInUp' : index == 1 ? 'wow animate__fadeInDown' : index == 2 ?'wow animate__fadeInLeft':'wow animate__fadeInRight'
+                        }`">
                         <img :src="`images/${item.img}`">
                         <div class="project_cont">
-                            <span>{{item.name}}</span>
+                            <span class="project_cont_span">{{item.name}}</span>
                             <p>{{item.detail}}</p>
-                            <el-button>查看详情</el-button>
+                            <el-button>
+                                查看详情
+                                <i class="iconfont icon-arrow-"></i>
+                            </el-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 工程案例 -->
+        <div class="index_cont new">
+            <div class="index_cont_nr">
+                <div class="index_title">
+                    <p class="index_title_xian_left"></p>
+                    <span class="index_title_name">新闻动态</span>
+                    <p class="index_title_xian_right"></p>
+                </div>
+                <div class="new_content">
+                    <div @click="Project_Click(item)" v-for="(item,index) in new_data" data-wow-duration="1s"
+                        data-wow-iteration="1" :class="`new_content_list new${index+1} ${
+                                    index == 0 ? 'wow animate__fadeInUp' : index == 1 ? 'wow animate__fadeInDown' : index == 2 ?'wow animate__fadeInLeft':'wow animate__fadeInRight'
+                                }`">
+                        <img :src="`images/${item.img}`">
+                        <div class="new_cont">
+                            <span>{{item.name}}</span>
                         </div>
                     </div>
                 </div>
@@ -92,11 +120,43 @@
                         detail: '医疗机构环境监测全覆盖',
                     }, {
                         img: '1.jpg',
-                        name: '医疗冷链及环境参数监测平台',
+                        name: '医疗冷链及环境参数监测平台医疗冷链及环境参数监测平',
                         detail: '医疗机构环境监测全覆盖',
                     }, {
                         img: '1.jpg',
                         name: '医疗冷链及环境参数监测平台',
+                        detail: '医疗机构环境监测全覆盖',
+                    }, {
+                        img: '1.jpg',
+                        name: '医疗冷链及环境参医疗冷链及环境参数监测平台医疗冷链及环境参数监测平台数监测平台',
+                        detail: '医疗机构环境监测全覆盖',
+                    }
+                ],
+
+                new_data: [
+                    {
+                        img: '1.jpg',
+                        name: '医疗冷链及环境参数监测平台',
+                        detail: '医疗机构环境监测全覆盖',
+                    }, {
+                        img: '1.jpg',
+                        name: '医疗冷链及环境参数监测平台医疗冷链及环境参数监测平',
+                        detail: '医疗机构环境监测全覆盖',
+                    }, {
+                        img: '1.jpg',
+                        name: '医疗冷链及环境参数监测平台',
+                        detail: '医疗机构环境监测全覆盖',
+                    }, {
+                        img: '1.jpg',
+                        name: '医疗冷链及环境参医疗冷链及环境参数监测平台医疗冷链及环境参数监测平台数监测平台',
+                        detail: '医疗机构环境监测全覆盖',
+                    }, {
+                        img: '1.jpg',
+                        name: '医疗冷链及环境参数监测平台',
+                        detail: '医疗机构环境监测全覆盖',
+                    }, {
+                        img: '1.jpg',
+                        name: '医疗冷链及环境参医疗冷链及环境参数监测平台医疗冷链及环境参数监测平台数监测平台',
                         detail: '医疗机构环境监测全覆盖',
                     }, {
                         img: '1.jpg',
@@ -111,6 +171,7 @@
             },
             // 初始化完成
             mounted () {
+                // banner初始化
                 var mySwiper = new Swiper('.banner', {
                     loop: true,
                     autoplay: false,
@@ -119,7 +180,7 @@
                     },
                 })
 
-
+                // 动画初始化
                 const wow = new WOW({
                     boxClass: 'wow',
                     animate: 'animated',
@@ -129,7 +190,10 @@
                 wow.init()
             },
             methods: {
-
+                // 工程案例跳转
+                Project_Click (item) {
+                    console.log(item)
+                }
             }
         })
     </script>

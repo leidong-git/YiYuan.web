@@ -192,13 +192,13 @@
             methods: {
                 // 菜单点击
                 Nav_Click (item, index) {
-                    console.log(item)
                     this.menu_active = index
                     this.iframe = item.path
                     // 动态修改iframe高度
                     let iframe = document.getElementById('iframe')
                     iframe.onload = function (e) {
-                        var ifheight = e.path[0].contentDocument.body.scrollHeight
+                        console.log(e)
+                        var ifheight = iframe.contentDocument.body.scrollHeight
                         iframe.style.height = ifheight + 'px'
                     }
                 },
@@ -206,7 +206,8 @@
                 Get_iframe () {
                     let iframe = document.getElementById('iframe')
                     iframe.onload = function (e) {
-                        var ifheight = e.path[0].contentDocument.body.scrollHeight
+                        console.log(iframe.contentDocument.body.scrollHeight)
+                        var ifheight = iframe.contentDocument.body.scrollHeight
                         iframe.style.height = ifheight + 'px'
                     }
                 }
