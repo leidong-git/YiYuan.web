@@ -99,6 +99,7 @@
                     }, {
                         id: 2,
                         name: '走进义源',
+                        path: 'about.html',
                         children: [
                             {
                                 id: 21,
@@ -178,7 +179,7 @@
                 },
 
 
-                iframe: 'index.html',
+                iframe: 'about.html',
             },
             // 创建
             created () {
@@ -201,6 +202,7 @@
                         var ifheight = iframe.contentDocument.body.scrollHeight
                         iframe.style.height = ifheight + 'px'
                     }
+
                 },
 
                 Get_iframe () {

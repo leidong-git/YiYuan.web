@@ -21,8 +21,7 @@
     <link rel="stylesheet" href="javascript/wow+animate/animate.css">
     <script src="javascript/wow+animate/wow.min.js"></script>
 
-    <link rel="stylesheet"
-        href="https://at.alicdn.com/t/c/font_3964206_qptw14k9cs.css?spm=a313x.7781069.1998910419.52&file=font_3964206_qptw14k9cs.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3964206_n1jwpx0u1v.css">
 
 </head>
 
@@ -36,7 +35,7 @@
                     <span>{{item.detail}}</span>
                 </li>
             </ul>
-            <div class="swiper-pagination"></div>
+            <!-- <div class="swiper-pagination"></div> -->
         </div>
 
         <!-- 工程案例 -->
@@ -67,7 +66,28 @@
             </div>
         </div>
 
-        <!-- 工程案例 -->
+        <!-- 优势特点 -->
+        <div class="index_cont superiority">
+            <div class="index_cont_nr">
+                <div class="index_title">
+                    <p class="index_title_xian_left"></p>
+                    <span class="index_title_name">优势特点</span>
+                    <p class="index_title_xian_right"></p>
+                </div>
+                <div class="superiority_content">
+                    <div @click="Superiority_Click(item)" v-for="(item,index) in superiority_data"
+                        data-wow-duration="1s" data-wow-iteration="1" :class="`superiority_content_list ${
+                                            index == 0 ? 'wow animate__fadeInUp' : index == 1 ? 'wow animate__fadeInDown' : index == 2 ?'wow animate__fadeInLeft':'wow animate__fadeInRight'
+                                        }`">
+                        <i :class="`iconfont ${item.icon}`"></i>
+                        <span>{{item.name}}</span>
+                        <p>{{item.detail}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新闻动态 -->
         <div class="index_cont new">
             <div class="index_cont_nr">
                 <div class="index_title">
@@ -76,15 +96,42 @@
                     <p class="index_title_xian_right"></p>
                 </div>
                 <div class="new_content">
-                    <div @click="Project_Click(item)" v-for="(item,index) in new_data" data-wow-duration="1s"
+                    <div @click="News_Click(item)" v-for="(item,index) in new_data" data-wow-duration="1s"
                         data-wow-iteration="1" :class="`new_content_list new${index+1} ${
                                     index == 0 ? 'wow animate__fadeInUp' : index == 1 ? 'wow animate__fadeInDown' : index == 2 ?'wow animate__fadeInLeft':'wow animate__fadeInRight'
                                 }`">
-                        <img :src="`images/${item.img}`">
+                        <div class="new_img" v-if="index<2">
+                            <img :src="`images/${item.img}`">
+                        </div>
                         <div class="new_cont">
-                            <span>{{item.name}}</span>
+                            <span class="new_cont_zi">{{item.name}}</span>
+                            <a v-if="index>1">详情>></a>
                         </div>
                     </div>
+                </div>
+
+                <div class="new_an">
+                    <el-button type="primary">查看更多</el-button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 合作伙伴 -->
+        <div class="index_cont partner">
+            <div class="index_cont_nr">
+                <div class="index_title">
+                    <p class="index_title_xian_left"></p>
+                    <span class="index_title_name">合作伙伴</span>
+                    <p class="index_title_xian_right"></p>
+                </div>
+                <div class="partner_content swiper-container">
+                    <ul class="swiper-wrapper wow animate__fadeInUp" data-wow-duration="1s" data-wow-iteration="1">
+                        <li v-for="(item,index) in partner_data" :key="index" class="swiper-slide">
+                            <div class="partner_cont" v-for="(item1,index1) in item.children" :key="index1">
+                                <img :src="`images/${item1.img}`">
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -133,6 +180,30 @@
                     }
                 ],
 
+                superiority_data: [
+                    {
+                        icon: 'icon-wulianwang',
+                        name: '物联网主动预防',
+                        detail: '物联网平台24H*7d实时在线，主动预防性服务，为客户提供放心的全方位的监测。',
+                    }, {
+                        icon: 'icon-nanguanjia',
+                        name: '管家式服务',
+                        detail: '定期、特殊情况2小时响应，贴心随到的管家式服务。',
+                    }, {
+                        icon: 'icon-shiyongzhuanzhengshenqing',
+                        name: '可提供试用',
+                        detail: '可试用，满足客户需求，经得起考验的服务。',
+                    }, {
+                        icon: 'icon-fangan',
+                        name: '专业系统的解决方案',
+                        detail: '管理系统、物联硬件等',
+                    }, {
+                        icon: 'icon-fuwu',
+                        name: '服务包定制',
+                        detail: '配套服务包可根据自身情况选择，也可定制开发，服务模块可选择。',
+                    }
+                ],
+
                 new_data: [
                     {
                         img: '1.jpg',
@@ -163,6 +234,58 @@
                         name: '医疗冷链及环境参数监测平台',
                         detail: '医疗机构环境监测全覆盖',
                     }
+                ],
+
+                partner_data: [
+                    {
+                        id: 1,
+                        children: [
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                        ]
+                    }, {
+                        id: 2,
+                        children: [
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                        ]
+                    }, {
+                        id: 3,
+                        children: [
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                        ]
+                    }, {
+                        id: 4,
+                        children: [
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                            { img: 'partner.jpg' },
+                        ]
+                    }
                 ]
             },
             // 创建
@@ -180,6 +303,15 @@
                     },
                 })
 
+                var swiper = new Swiper(".partner_content", {
+                    direction: "vertical",
+                    loop: true,
+                    autoplay: {
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }
+                })
+
                 // 动画初始化
                 const wow = new WOW({
                     boxClass: 'wow',
@@ -192,6 +324,11 @@
             methods: {
                 // 工程案例跳转
                 Project_Click (item) {
+                    console.log(item)
+                },
+
+                // 新闻
+                News_Click (item) {
                     console.log(item)
                 }
             }

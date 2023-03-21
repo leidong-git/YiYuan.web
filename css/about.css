@@ -1,0 +1,189 @@
+/* 公用about_title */
+.about_title {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 0 2px 4px #333;
+    font-weight: 600;
+    padding-top: 82px;
+}
+
+.about {
+    width: 100%;
+    height: auto;
+}
+
+.about .about_content {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0 30px 0;
+    box-sizing: border-box;
+}
+
+.about_left {
+    width: 600px;
+    margin-right: 30px;
+}
+
+.about_left span {
+    width: 100%;
+    display: block;
+    line-height: 50px;
+    text-align: left;
+    color: var(--color);
+    font-size: 40px;
+    margin: 20px 0;
+}
+
+.about_left p {
+    width: 100%;
+    display: block;
+    line-height: 30px;
+    text-align: left;
+    text-indent: 2em;
+    color: #333;
+}
+
+.about_right {
+    width: calc(100% - 630px);
+    height: 100%;
+}
+
+.about_right video {
+    width: auto;
+    height: 100%;
+    border-radius: 10px;
+}
+
+
+.course {
+    width: 100%;
+    height: auto;
+}
+
+.course .course_title {
+    width: 100%;
+    height: 316px;
+    background: url('../images/about_bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 0 2px 4px #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.course_content .event_zi {
+    width: 100%;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 36px;
+    color: #222222;
+    letter-spacing: 3px;
+    text-indent: 2em;
+}
+
+.course_list {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 50px 0 30px 0;
+}
+
+.course_list .course_list_xian {
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -1px;
+    background: -webkit-linear-gradient(to top, rgb(0, 0, 0, 0.0) 0%, rgb(0, 0, 0, 0.01) 5%, #c4c6db 15%, #c4c6db 100%);
+    background: -o-linear-gradient(to top, rgb(0, 0, 0, 0.0) 0%, rgb(0, 0, 0, 0.01) 5%, #c4c6db 15%, #c4c6db 100%);
+    background: -moz-linear-gradient(to top, rgb(0, 0, 0, 0.0) 0%, rgb(0, 0, 0, 0.01) 5%, #c4c6db 15%, #c4c6db 100%);
+    background: linear-gradient(to top, rgb(0, 0, 0, 0.0) 0%, rgb(0, 0, 0, 0.01) 5%, #c4c6db 15%, #c4c6db 100%);
+}
+
+.course_list ul li {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.course_list ul li:nth-child(even) {
+    padding-right: 50%;
+}
+
+.course_list ul li:nth-child(odd) {
+    justify-content: flex-start;
+    padding-left: 50%;
+}
+
+.course_list ul li:nth-child(even) i {
+    width: 157px;
+    height: 92px;
+    position: absolute;
+    background: url('../images/course_left.png') no-repeat top center;
+    background-size: 100% 100%;
+    left: calc(50% - 131px);
+    padding-right: 20px;
+    text-align: right;
+}
+
+.course_list ul li:nth-child(odd) i {
+    width: 157px;
+    height: 92px;
+    justify-content: flex-start;
+    position: absolute;
+    left: calc(50% - 45px);
+    background: url('../images/course_right.png') no-repeat top center;
+    background-size: 100% 100%;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.course_list ul li:nth-child(even) .sj_nr {
+    width: calc(100% - 140px);
+    margin-right: 160px;
+    float: right;
+    text-align: right;
+}
+
+.course_list ul li:nth-child(odd) .sj_nr {
+    width: calc(100% - 140px);
+    margin-left: 160px;
+    float: left;
+}
+
+.course_list ul li i {
+    display: inline-block;
+    line-height: 92px;
+    font-size: 22px;
+    color: #fff;
+}
+
+.course_list ul li .sj_nr {
+    margin-top: 26px;
+}
+
+.sj_nr span {
+    width: 100%;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 40px;
+    color: #222222;
+    letter-spacing: 3px;
+}
+
+.sj_nr img {
+    width: 315px;
+    margin-top: 20px;
+}

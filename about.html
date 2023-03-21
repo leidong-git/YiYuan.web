@@ -25,14 +25,104 @@
 
 <body>
     <div id="app" v-cloak>
-        <div class="about" style="height: 5000px; background: #f00;"></div>
+        <!-- about -->
+        <div class="index_cont" style="background:url(images/about.jpg); background-size: cover;">
+            <div class="index_cont_nr">
+                <div class="about_title">
+                    <span>走进义源</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公司简介 -->
+        <div class="index_cont about">
+            <div class="index_cont_nr">
+                <div class="index_title">
+                    <p class="index_title_xian_left"></p>
+                    <span class="index_title_name">公司简介</span>
+                    <p class="index_title_xian_right"></p>
+                </div>
+
+                <div class="about_content">
+                    <div class="about_left">
+                        <span>{{about_data.name}}</span>
+                        <p>{{about_data.detail}}</p>
+                    </div>
+                    <div class="about_right">
+                        <video :src="`images/${about_data.video}`" :poster="`images/${about_data.video_img}`"
+                            controls></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 发展历程 -->
+        <div class="index_cont course">
+            <div class="course_title">
+                <span>义源发展历程</span>
+            </div>
+            <div class="index_cont_nr">
+                <div class="course_content">
+                    <div class="course_list">
+                        <div class="course_list_xian"></div>
+                        <ul>
+                            <li v-for="(item,index) in course_data" :key="index">
+                                <i class="sj_time">{{item.time}}</i>
+                                <div class="sj_nr">
+                                    <span>{{item.value}}</span>
+                                    <p>{{item.detail}}</p>
+                                    <img v-if="item.img" :src="`images/${item.img}`">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
         var vm = new Vue({
             el: '#app',
             data: {
+                about_data: {
+                    name: '**********',
+                    detail: '**********有限公司是一家专业从事医疗物联网管理、软硬件研发、工程实施和服务的国家级高新技术企业。威斯盾凭借强大的自主创新能力，以移动协同、数据可视化、决策智能化为导向，率先将物联网技术引进到医疗领域的多场景应用，大幅度提升了医疗机构的环境安全及感染控制水平。主营业务涵盖医院冷链及全环境要素监测平台、医疗机构手卫生依从性管理平台、医疗废物追溯管理平台、手卫生智能分析系统等，实现了7x24实时在线监控和职业规范的技术服务工程师现场支持管家式服务，量身定制开发服务模块提供专业系统的解决方案。现已设立华北、东北、华东、华中、华南、西南、西北七大区域内20个服务点或办事处。百余位科技和服务人员为全国300多家三甲医院用户提供统一化、专业化、本地化的快速响应服务。',
+                    video: 'wsd_20191008_3.mp4',
+                    video_img: 'video.png'
+                },
 
+                course_data: [
+                    {
+                        time: '2000',
+                        value: '“百度”的诞生 ',
+                        detail: '作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 ',
+                    }, {
+                        time: '2000',
+                        value: '百度的发展与突围 ',
+                        detail: '作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 ',
+                    }, {
+                        time: '2000',
+                        value: '“百度”的诞生 ',
+                        detail: '作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 ',
+                    }, {
+                        time: '2000',
+                        value: '“百度”的诞生 ',
+                        detail: '作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 ',
+                    }, {
+                        time: '2000',
+                        value: '“百度”的诞生 ',
+                        detail: '作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 ',
+                    }, {
+                        time: '2000',
+                        value: '“百度”的诞生 ',
+                        detail: '作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 ',
+                    }, {
+                        time: '2000',
+                        value: '“百度”的诞生 ',
+                        detail: '作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 ',
+                    }
+                ]
             },
             // 创建
             created () {
