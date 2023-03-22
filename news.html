@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/about.css">
+
+    <!-- vue+element -->
+    <script src="javascript/vue+jquery+element/vue.min.js"></script>
+    <link href="javascript/vue+jquery+element/index.css" rel="stylesheet">
+    <script src="javascript/vue+jquery+element/index.js"></script>
+    <script src="javascript/vue+jquery+element/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="javascript/wow+animate/animate.css">
+    <script src="javascript/wow+animate/wow.min.js"></script>
+
+    <link rel="stylesheet"
+        href="https://at.alicdn.com/t/c/font_3964206_m2e6kjvsnr.css?spm=a313x.7781069.1998910419.52&file=font_3964206_m2e6kjvsnr.css">
+
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- about -->
+        <div class="index_cont" style="background:url(images/about.jpg); background-size: cover;">
+            <div class="index_cont_nr">
+                <div class="about_title">
+                    <span>新闻动态</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公司简介 -->
+        <div class="index_cont about">
+            <div class="index_cont_nr">
+                <div class="index_title wow animate__fadeInDown" data-wow-duration="1s" data-wow-iteration="1">
+                    <p class="index_title_xian_left"></p>
+                    <span class="index_title_name">新闻动态</span>
+                    <p class="index_title_xian_right"></p>
+                </div>
+
+                <div class="new_content">
+                    <ul>
+                        <li @click="News_Detail(item)" class="wow animate__fadeInUp" data-wow-duration="1s"
+                            data-wow-iteration="1" v-for="
+                                                (item,index) in core_data" :key="index">
+                            <div class="new_img">
+                                <img :src="`images/${item.img}`">
+                            </div>
+                            <div class="new_cont">
+                                <span class="new_title">{{item.title}}</span>
+                                <i>{{item.time}}</i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                    :current-page.sync="currentPage" :page-size="100" layout="prev, pager, next, jumper" :total="1000">
+                </el-pagination>
+            </div>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                core_data: [
+                    {
+                        id: 1,
+                        img: '1.jpg',
+                        title: '医疗冷链及环境参数监测平台',
+                        time: '2023-1-2',
+                    }, {
+                        id: 2,
+                        img: '1.jpg',
+                        title: '医疗冷链及环境参数监测平台医疗冷链及环境参数监测平',
+                        time: '2023-12-1',
+                    }, {
+                        id: 3,
+                        img: '1.jpg',
+                        title: '医疗冷链及环境参数监测平台',
+                        time: '2023-12-1',
+                    }, {
+                        id: 4,
+                        img: '1.jpg',
+                        title: '医疗冷链及环境参医疗冷链及环境参数监测平台医疗冷链及环境参数监测平台数监测平台',
+                        time: '2023-12-1',
+                    }, {
+                        id: 5,
+                        img: '1.jpg',
+                        title: '医疗冷链及环境参数监测平台',
+                        time: '2023-12-1',
+                    }, {
+                        id: 6,
+                        img: '1.jpg',
+                        title: '医疗冷链及环境参医疗冷链及环境参数监测平台医疗冷链及环境参数监测平台数监测平台',
+                        time: '2023-12-1',
+                    }, {
+                        id: 7,
+                        img: '1.jpg',
+                        title: '医疗冷链及环境参数监测平台',
+                        time: '2023-12-1',
+                    }
+                ],
+
+                currentPage: 3,
+            },
+            // 创建
+            created () {
+
+            },
+            // 初始化完成
+            mounted () {
+                // 动画初始化
+                const wow = new WOW({
+                    boxClass: 'wow',
+                    animate: 'animated',
+                    offset: 0,
+                    live: false,
+                })
+                wow.init()
+            },
+            methods: {
+                // 跳转详情
+                News_Detail (item) {
+                    console.log(111)
+                    window.location.href = `core_detail.html?id=${item.id}`
+                },
+
+                // 分页
+                handleSizeChange (val) {
+                    console.log(`每页 ${val} 条`)
+                },
+                handleCurrentChange (val) {
+                    console.log(`当前页: ${val}`)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/about.css">
+
+    <!-- vue+element -->
+    <script src="javascript/vue+jquery+element/vue.min.js"></script>
+    <link href="javascript/vue+jquery+element/index.css" rel="stylesheet">
+    <script src="javascript/vue+jquery+element/index.js"></script>
+    <script src="javascript/vue+jquery+element/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="javascript/swiper/swiper-bundle.min.css">
+    <script src="javascript/swiper/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="javascript/wow+animate/animate.css">
+    <script src="javascript/wow+animate/wow.min.js"></script>
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3964206_zv2hq0bes7.css">
+
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- about -->
+        <div class="index_cont" style="background:url(images/about.jpg); background-size: cover;">
+            <div class="index_cont_nr">
+                <div class="about_title">
+                    <span>合作客户</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 合作客户 -->
+        <div class="index_cont hornor_z">
+            <div class="index_cont_nr">
+                <div class="index_title wow animate__fadeInDown" data-wow-duration="1s" data-wow-iteration="1">
+                    <p class="index_title_xian_left"></p>
+                    <span class="index_title_name">合作客户</span>
+                    <p class="index_title_xian_right"></p>
+                </div>
+
+                <div class="connection_content">
+                    <ul>
+                        <li class="wow animate__fadeInUp" data-wow-duration="1s" data-wow-iteration="1" v-for="
+                            (item,index) in connection" :key="index">
+                            <img :src="`images/${item.img}`">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                connection: [
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                    { img: 'partner.jpg' },
+                ],
+            },
+            // 创建
+            created () {
+
+            },
+            // 初始化完成
+            mounted () {
+                // 动画初始化
+                const wow = new WOW({
+                    boxClass: 'wow',
+                    animate: 'animated',
+                    offset: 0,
+                    live: false,
+                })
+                wow.init()
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

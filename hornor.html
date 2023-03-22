@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/about.css">
+
+    <!-- vue+element -->
+    <script src="javascript/vue+jquery+element/vue.min.js"></script>
+    <link href="javascript/vue+jquery+element/index.css" rel="stylesheet">
+    <script src="javascript/vue+jquery+element/index.js"></script>
+    <script src="javascript/vue+jquery+element/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="javascript/swiper/swiper-bundle.min.css">
+    <script src="javascript/swiper/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="javascript/wow+animate/animate.css">
+    <script src="javascript/wow+animate/wow.min.js"></script>
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3964206_zv2hq0bes7.css">
+
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- about -->
+        <div class="index_cont" style="background:url(images/about.jpg); background-size: cover;">
+            <div class="index_cont_nr">
+                <div class="about_title">
+                    <span>资质荣誉</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 资质荣誉 -->
+        <div class="index_cont hornor_z">
+            <div class="index_cont_nr">
+                <div class="index_title wow animate__fadeInDown" data-wow-duration="1s" data-wow-iteration="1">
+                    <p class="index_title_xian_left"></p>
+                    <span class="index_title_name">资质荣誉</span>
+                    <p class="index_title_xian_right"></p>
+                </div>
+
+                <div class="hornor_content">
+                    <div class="hornor swiper-container">
+                        <ul class="swiper-wrapper">
+                            <li v-for="(item,index) in hornor" :key="index" class="swiper-slide">
+                                <el-image :src="`images/${item.img}`" :preview-src-list="hornor_list" />
+                                <span>{{item.detail}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper-button-next button-next">
+                        <i class="iconfont icon-you-yuan-tianchong"></i>
+                    </div>
+                    <div class="swiper-button-prev button-prev">
+                        <i class="iconfont icon-zuo-yuan-tianchong"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                hornor: [
+                    {
+                        img: '1.jpg',
+                        detail: '***资质'
+                    }, {
+                        img: '2.jpg',
+                        detail: '***资质'
+                    }, {
+                        img: '3.jpg',
+                        detail: '***资质'
+                    }, {
+                        img: '4.jpg',
+                        detail: '***资质'
+                    }, {
+                        img: 'video.png',
+                        detail: '***资质'
+                    }, {
+                        img: 'icon.png',
+                        detail: '***资质'
+                    }, {
+                        img: 'about.jpg',
+                        detail: '***资质'
+                    }
+                ],
+
+                hornor_list: [
+                    'images/1.jpg',
+                    'images/2.jpg',
+                    'images/3.jpg',
+                    'images/4.jpg',
+                    'images/video.png',
+                    'images/icon.png',
+                    'images/about.jpg',
+                ],
+            },
+            // 创建
+            created () {
+
+            },
+            // 初始化完成
+            mounted () {
+                var mySwiper = new Swiper('.hornor', {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    centeredSlides: true,
+                    rewind: true,
+                    autoplay: {
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                })
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

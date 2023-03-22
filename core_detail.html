@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/about.css">
+
+    <!-- vue+element -->
+    <script src="javascript/vue+jquery+element/vue.min.js"></script>
+    <link href="javascript/vue+jquery+element/index.css" rel="stylesheet">
+    <script src="javascript/vue+jquery+element/index.js"></script>
+    <script src="javascript/vue+jquery+element/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="javascript/wow+animate/animate.css">
+    <script src="javascript/wow+animate/wow.min.js"></script>
+
+    <link rel="stylesheet"
+        href="https://at.alicdn.com/t/c/font_3964206_m2e6kjvsnr.css?spm=a313x.7781069.1998910419.52&file=font_3964206_m2e6kjvsnr.css">
+
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- about -->
+        <div class="index_cont" style="background:url(images/about.jpg); background-size: cover;">
+            <div class="index_cont_nr">
+                <div class="about_title">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 公司简介 -->
+        <div class="index_cont about">
+            <div class="index_cont_nr">
+                <div class="new_detail_cont">
+                    <div v-html="content" class="new_detail_left wow animate__fadeInLeft" data-wow-duration="1s"
+                        data-wow-iteration="1">
+                    </div>
+                    <div class="new_detail_right wow animate__fadeInRight" data-wow-duration="1s"
+                        data-wow-iteration="1">
+                        <div class="new_detail_list_title">
+                            <p></p>
+                            <span>更多技术</span>
+                        </div>
+                        <div class="new_detail_list_nr">
+                            <ul>
+                                <li v-for="(item,index) in new_list" :key="index">
+                                    <img :src="`images/${item.img}`" alt="">
+                                    <div>
+                                        <p>{{item.title}}</p>
+                                        <i>{{item.time}}</i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                content: '<div class="course_list"><div class="course_list_xian"></div> <ul><li data-wow-duration="1s" data-wow-iteration="1" class="wow animate__fadeInUp" style="visibility: visible; animation-duration: 1s; animation-iteration-count: 1; animation-name: fadeInUp;"><i class="sj_time">2000</i> <div class="sj_nr"><span>“百度”的诞生 </span> <p>作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 </p> <!----></div></li><li data-wow-duration="1s" data-wow-iteration="1" class="wow animate__fadeInDown" style="visibility: visible; animation-duration: 1s; animation-iteration-count: 1; animation-name: fadeInDown;"><i class="sj_time">2000</i> <div class="sj_nr"><span>百度的发展与突围 </span> <p>作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 </p> <!----></div></li><li data-wow-duration="1s" data-wow-iteration="1" class="wow animate__fadeInUp" style="visibility: visible; animation-duration: 1s; animation-iteration-count: 1; animation-name: fadeInUp;"><i class="sj_time">2000</i> <div class="sj_nr"><span>“百度”的诞生 </span> <p>作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 </p> <!----></div></li><li data-wow-duration="1s" data-wow-iteration="1" class="wow animate__fadeInDown" style="visibility: visible; animation-duration: 1s; animation-iteration-count: 1; animation-name: fadeInDown;"><i class="sj_time">2000</i> <div class="sj_nr"><span>“百度”的诞生 </span> <p>作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 </p> <!----></div></li><li data-wow-duration="1s" data-wow-iteration="1" class="wow animate__fadeInUp" style="visibility: visible; animation-duration: 1s; animation-iteration-count: 1; animation-name: fadeInUp;"><i class="sj_time">2000</i> <div class="sj_nr"><span>“百度”的诞生 </span> <p>作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 </p> <!----></div></li><li data-wow-duration="1s" data-wow-iteration="1" class="wow animate__fadeInDown" style="visibility: visible; animation-duration: 1s; animation-iteration-count: 1; animation-name: fadeInDown;"><i class="sj_time">2000</i> <div class="sj_nr"><span>“百度”的诞生 </span> <p>作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 </p> <!----></div></li><li data-wow-duration="1s" data-wow-iteration="1" class="wow animate__fadeInUp" style="visibility: visible; animation-duration: 1s; animation-iteration-count: 1; animation-name: fadeInUp;"><i class="sj_time">2000</i> <div class="sj_nr"><span>“百度”的诞生 </span> <p>作为一家公司的百度，成立于21世纪的第一天——2000，这个特别的日子，或多或少地寄托着李彦宏对这家公司能够带来一些全新变化的期待。在互联网世界里，在搜索引擎出现前，先后存在过两类入口——其一，是浏览器，其二，则是门户。 </p> <!----></div></li></ul></div>',
+                new_list: [
+                    {
+                        img: '1.jpg',
+                        title: '院际交流，借鉴提升 | 陕西省院感质控中心举办智慧医废管理培训活动',
+                        time: '2023-03-21'
+                    }, {
+                        img: '2.jpg',
+                        title: '业界瞩目，精彩纷呈 | 威斯盾闪亮出展2023第五届智慧医院建设与发展大会',
+                        time: '2023-03-14'
+                    }, {
+                        img: '3.jpg',
+                        title: '热烈祝贺北京威斯盾获选GSP冷链验证“国家标准符合性验证单位”',
+                        time: '2023-02-28'
+                    }, {
+                        img: '4.jpg',
+                        title: '小身材，大智慧 | 威斯盾智能医废转运车“上岗”镇安县医院',
+                        time: '2023-02-16'
+                    }, {
+                        img: '5.jpg',
+                        title: '威斯盾打造“智慧卫生监管平台”，助推卫生监管数字化变革',
+                        time: '2023-02-10'
+                    }
+                ]
+            },
+            // 创建
+            created () {
+
+            },
+            // 初始化完成
+            mounted () {
+                // 动画初始化
+                const wow = new WOW({
+                    boxClass: 'wow',
+                    animate: 'animated',
+                    offset: 0,
+                    live: false,
+                })
+                wow.init()
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -15,9 +15,9 @@
     <script src="javascript/vue+jquery+element/index.js"></script>
     <script src="javascript/vue+jquery+element/jquery.min.js"></script>
 
+    <link rel="stylesheet" href="javascript/wow+animate/animate.css">
+    <script src="javascript/wow+animate/wow.min.js"></script>
 
-    <link href="javascript/swiper/swiper-bundle.min.css">
-    <script src="javascript/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet"
         href="https://at.alicdn.com/t/c/font_3964206_m2e6kjvsnr.css?spm=a313x.7781069.1998910419.52&file=font_3964206_m2e6kjvsnr.css">
 
@@ -37,18 +37,18 @@
         <!-- 公司简介 -->
         <div class="index_cont about">
             <div class="index_cont_nr">
-                <div class="index_title">
+                <div class="index_title wow animate__fadeInDown" data-wow-duration="1s" data-wow-iteration="1">
                     <p class="index_title_xian_left"></p>
                     <span class="index_title_name">公司简介</span>
                     <p class="index_title_xian_right"></p>
                 </div>
 
                 <div class="about_content">
-                    <div class="about_left">
+                    <div class="about_left wow animate__fadeInLeft" data-wow-duration="1s" data-wow-iteration="1">
                         <span>{{about_data.name}}</span>
                         <p>{{about_data.detail}}</p>
                     </div>
-                    <div class="about_right">
+                    <div class="about_right wow animate__fadeInRight" data-wow-duration="1s" data-wow-iteration="1">
                         <video :src="`images/${about_data.video}`" :poster="`images/${about_data.video_img}`"
                             controls></video>
                     </div>
@@ -58,7 +58,7 @@
 
         <!-- 发展历程 -->
         <div class="index_cont course">
-            <div class="course_title">
+            <div class="course_title wow animate__fadeInUp" data-wow-duration="1s" data-wow-iteration="1">
                 <span>义源发展历程</span>
             </div>
             <div class="index_cont_nr">
@@ -66,7 +66,9 @@
                     <div class="course_list">
                         <div class="course_list_xian"></div>
                         <ul>
-                            <li v-for="(item,index) in course_data" :key="index">
+                            <li :class="`${index % 2 ==0 ? 'wow animate__fadeInUp' : 'wow animate__fadeInDown'}`"
+                                v-for="(item,index) in course_data" :key="index" data-wow-duration="1s"
+                                data-wow-iteration="1">
                                 <i class="sj_time">{{item.time}}</i>
                                 <div class="sj_nr">
                                     <span>{{item.value}}</span>
@@ -80,7 +82,6 @@
             </div>
         </div>
     </div>
-
     <script>
         var vm = new Vue({
             el: '#app',
@@ -130,7 +131,14 @@
             },
             // 初始化完成
             mounted () {
-
+                // 动画初始化
+                const wow = new WOW({
+                    boxClass: 'wow',
+                    animate: 'animated',
+                    offset: 0,
+                    live: false,
+                })
+                wow.init()
             },
             methods: {
 
