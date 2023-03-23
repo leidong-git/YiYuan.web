@@ -679,3 +679,105 @@
     width: 100%;
     height: 500px;
 }
+
+/* 义源公益 */
+.charity_content {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.charity_content ul{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.charity_content ul li{
+    width: 100%;
+    height: auto;
+    align-content: flex-start;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #333;
+}
+
+.charity_content ul li:first-child{
+    align-items: center;
+    margin:50px 0;
+}
+
+.charity_content ul li:first-child .charity_title{
+    display: none;
+}
+
+.charity_content ul li:first-child span{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.charity_content ul li .charity_title{
+    font-size: 25px;
+    text-align: center;
+    width: 100%;
+    padding:20px 0;
+    border-top: 2px solid #007aff;
+    border-bottom: 2px solid #007aff;
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+.charity_content ul li:nth-child(even) .charity_left {
+    order: 2;
+}
+
+.charity_content ul li:nth-child(even) .charity_right {
+    order: 1;
+}
+
+.charity_title::after{
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: #007aff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.charity_title::before{
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: #007aff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.charity_left,.charity_right{
+    width: 45%;
+    height: auto;
+}
+
+.charity_right img{
+    width: 100%;
+    height: auto;
+}
+
+.charity_left{
+    width: 45%;
+    height: auto;
+}
+
+.charity_left p{
+    display: flex;
+    align-content: flex-start;
+    padding: 30px 0;
+    text-indent: 2em;
+}
