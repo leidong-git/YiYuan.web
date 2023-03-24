@@ -50,7 +50,9 @@
                         <div class="new_detail_list_nr">
                             <ul>
                                 <li v-for="(item,index) in new_list" :key="index">
-                                    <img :src="`images/${item.img}`" alt="">
+                                    <div class="new_d_img">
+                                        <img :src="`images/${item.img}`" alt="">
+                                    </div>
                                     <div>
                                         <p>{{item.title}}</p>
                                         <i>{{item.time}}</i>

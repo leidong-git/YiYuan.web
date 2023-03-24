@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/about.css">
+
+    <!-- vue+element -->
+    <script src="javascript/vue+jquery+element/vue.min.js"></script>
+    <link href="javascript/vue+jquery+element/index.css" rel="stylesheet">
+    <script src="javascript/vue+jquery+element/index.js"></script>
+    <script src="javascript/vue+jquery+element/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="javascript/wow+animate/animate.css">
+    <script src="javascript/wow+animate/wow.min.js"></script>
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3964206_55w5azolxbe.css">
+
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- about -->
+        <div class="index_cont" style="background:url(images/about.jpg); background-size: cover;">
+            <div class="index_cont_nr">
+                <div class="about_title">
+                    <span>科研项目</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公司简介 -->
+        <div class="index_cont about">
+            <div class="index_cont_nr">
+                <div class="intellectual_title">
+                    <ul>
+                        <li @click="Intellectual_Title_Clcik(item,index)" v-for="(item,index) in intellectual_title"
+                            :class="intellectual_title_active == index ? 'active':''">
+                            {{item.name}}
+                            <i class="iconfont icon-xuanzeqixiayige"></i>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="intellectual_content">
+                    <ul>
+                        <li class="wow animate__fadeInUp" v-for="(item,index) in intellectual_data" :key="index"
+                            data-wow-duration="1s" data-wow-iteration="1">
+                            <div class="intellectual_img">
+                                <el-image :src="`images/${item.img}`" :preview-src-list="intellectual_list">
+                            </div>
+                            <span class="intellectual_cont">{{item.name}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+                intellectual_title_active: 0,
+                intellectual_title: [
+                    {
+                        id: 'intellectual1',
+                        name: '科研项目',
+                    }, {
+                        id: 'intellectual2',
+                        name: '制定标准',
+                    }
+                ],
+
+                intellectual_data: [
+                    {
+                        img: '2.jpg',
+                        name: '2020-G1设有座圈感应系统的马桶1',
+                    }, {
+                        img: '3.jpg',
+                        name: '2020-G1设有座圈感应系统的马桶1',
+                    }, {
+                        img: '4.jpg',
+                        name: '2020-G1设有座圈感应系统的马桶1',
+                    }, {
+                        img: '5.jpg',
+                        name: '2020-G1设有座圈感应系统的马桶1',
+                    }, {
+                        img: '6.jpg',
+                        name: '2020-G1设有座圈感应系统的马桶1',
+                    }, {
+                        img: '1.jpg',
+                        name: '2020-G1设有座圈感应系统的马桶1',
+                    }, {
+                        img: '2.jpg',
+                        name: '2020-G1设有座圈感应系统的马桶1',
+                    }, {
+                        img: '3.jpg',
+                        name: '2020-G1设有座圈感应系统的马桶1',
+                    }, {
+                        img: '4.jpg',
+                        name: '2020-G1设有座圈感应系统的马桶1',
+                    }, {
+                        img: '5.jpg',
+                        name: '2020-G1设有座圈感应系统的马桶1',
+                    }, {
+                        img: '6.jpg',
+                        name: '2020-G1设有座圈感应系统的马桶1',
+                    }
+                ],
+
+                intellectual_list: []
+            },
+            // 创建
+            created () {
+
+            },
+            // 初始化完成
+            mounted () {
+                // 动画初始化
+                const wow = new WOW({
+                    boxClass: 'wow',
+                    animate: 'animated',
+                    offset: 0,
+                    live: false,
+                })
+                wow.init()
+
+                this.Get_All_Image()
+            },
+            methods: {
+                // 获取数据中的图片
+                Get_All_Image () {
+                    this.intellectual_list = this.intellectual_data.map(item => {
+                        return `images/${item.img}`
+                    })
+                    console.log(this.intellectual_list)
+                },
+
+                // 菜单切换
+                Intellectual_Title_Clcik (item, index) {
+                    console.log(item)
+                    this.intellectual_title_active = index
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

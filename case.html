@@ -29,7 +29,7 @@
         <div class="index_cont" style="background:url(images/about.jpg); background-size: cover;">
             <div class="index_cont_nr">
                 <div class="about_title">
-                    <span>新闻动态</span>
+                    <span>工程案例</span>
                 </div>
             </div>
         </div>
@@ -37,22 +37,32 @@
         <!-- 公司简介 -->
         <div class="index_cont about">
             <div class="index_cont_nr">
-                <div class="index_title wow animate__fadeInDown" data-wow-duration="1s" data-wow-iteration="1">
-                    <p class="index_title_xian_left"></p>
-                    <span class="index_title_name">新闻动态</span>
-                    <p class="index_title_xian_right"></p>
+                <div class="case_title wow animate__fadeInDown" data-wow-duration="1s" data-wow-iteration="1">
+                    <el-input class="case_search" placeholder="请输入内容" v-model="search" class="input-with-select">
+                        <el-select v-model="case_type" slot="prepend" placeholder="请选择">
+                            <el-option label="全部" value="0"></el-option>
+                            <el-option v-for="item in case_list" :label="item.label" :value="item.value"></el-option>
+                        </el-select>
+                        <el-button type="primary" slot="append" @click="Search()" icon="el-icon-search">
+                            搜索
+                        </el-button>
+                    </el-input>
                 </div>
 
-                <div class="new_content">
+                <div class="case_content">
                     <ul v-if="core_data.length != 0">
                         <li @click="News_Detail(item)" class="wow animate__fadeInUp" data-wow-duration="1s"
                             data-wow-iteration="1" v-for="(item,index) in core_data" :key="index">
-                            <div class="new_img">
+                            <div class="case_img">
                                 <img :src="`images/${item.img}`">
                             </div>
-                            <div class="new_cont">
-                                <span class="new_title">{{item.title}}</span>
-                                <i>{{item.time}}</i>
+                            <div class="case_cont">
+                                <span class="case_cont_title">{{item.title}}</span>
+                                <p>{{item.detail}}</p>
+                                <div class="case_cont_row">
+                                    <span>地址：{{item.address}}</span>
+                                    <i>{{item.time}}</i>
+                                </div>
                             </div>
                         </li>
                     </ul>
@@ -66,6 +76,7 @@
                     @current-change="handleCurrentChange" :current-page.sync="currentPage" :page-size="100"
                     layout="prev, pager, next, jumper" :total="1000">
                 </el-pagination>
+
             </div>
         </div>
     </div>
@@ -73,21 +84,46 @@
         var vm = new Vue({
             el: '#app',
             data: {
+                search: '',
+                case_type: '',
+                case_list: [
+                    {
+                        label: '马桶',
+                        value: 'mt01'
+                    }, {
+                        label: '一号马桶',
+                        value: 'mt02'
+                    }, {
+                        label: '坐便器',
+                        value: 'mt03'
+                    }, {
+                        label: '蹲便器',
+                        value: 'mt04'
+                    }
+                ],
+
                 core_data: [
                     {
                         id: 1,
                         img: '1.jpg',
-                        title: '医疗冷链及环境参数监测平台',
+                        title: '抽水马桶安装',
+                        detail: '京东京造小白鲸轻智能马桶一体机 坐便器座圈加热  停电冲水305坑距京东京造小白鲸轻智能马桶一体机 坐便器座圈加热  停电冲水305坑距',
+                        address: '上海市***街道***栋',
                         time: '2023-1-2',
                     }, {
                         id: 2,
                         img: '1.jpg',
                         title: '医疗冷链及环境参数监测平台医疗冷链及环境参数监测平',
+                        detail: '京东京造小白鲸轻智能马桶一体机 坐便器座圈加热  停电冲水305坑距京东京造小白鲸轻智能马桶一体机 坐便器座圈加热  停电冲水305坑距',
+                        address: '上海市***街道***栋',
                         time: '2023-12-1',
                     }, {
                         id: 3,
                         img: '1.jpg',
-                        title: '医疗冷链及环境参数监测平台',
+                        title: '抽水马桶安装',
+                        detail: '京东京造小白鲸轻智能马桶一体机 坐便器座圈加热  停电冲水305坑距京东京造小白鲸轻智能马桶一体机 坐便器座圈加热  停电冲水305坑距',
+                        address: '上海市***街道***栋',
+
                         time: '2023-12-1',
                     }, {
                         id: 4,
@@ -97,17 +133,25 @@
                     }, {
                         id: 5,
                         img: '1.jpg',
-                        title: '医疗冷链及环境参数监测平台',
+                        title: '抽水马桶安装',
+                        detail: '京东京造小白鲸轻智能马桶一体机 坐便器座圈加热  停电冲水305坑距京东京造小白鲸轻智能马桶一体机 坐便器座圈加热  停电冲水305坑距',
+                        address: '上海市***街道***栋',
+
                         time: '2023-12-1',
                     }, {
                         id: 6,
                         img: '1.jpg',
                         title: '医疗冷链及环境参医疗冷链及环境参数监测平台医疗冷链及环境参数监测平台数监测平台',
+                        detail: '京东京造小白鲸轻智能马桶一体机 坐便器座圈加热  停电冲水305坑距京东京造小白鲸轻智能马桶一体机 坐便器座圈加热  停电冲水305坑距',
+                        address: '上海市***街道***栋',
                         time: '2023-12-1',
                     }, {
                         id: 7,
                         img: '1.jpg',
                         title: '医疗冷链及环境参数监测平台',
+                        detail: '京东京造小白鲸轻智能马桶一体机 坐便器座圈加热  停电冲水305坑距京东京造小白鲸轻智能马桶一体机 坐便器座圈加热  停电冲水305坑距',
+                        address: '上海市***街道***栋',
+
                         time: '2023-12-1',
                     }
                 ],
@@ -128,8 +172,17 @@
                     live: false,
                 })
                 wow.init()
+
+                // 默认选中全部
+                this.case_type = '全部'
             },
             methods: {
+                // 搜索
+                Search () {
+                    console.log(this.case_type)
+                    console.log(this.search)
+                },
+
                 // 跳转详情
                 News_Detail (item) {
                     console.log(111)
