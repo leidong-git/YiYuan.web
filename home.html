@@ -55,9 +55,9 @@
                             <div class="content_left">
                                 <div v-for="(item,index) in menu"
                                     :class="`foot_con_list ${item.children.length > 0 ? '':'dan'}`">
-                                    <span>{{item.name}}</span>
+                                    <span @click="Nav_Click(item,index)">{{item.name}}</span>
                                     <a v-for="(item1,index) in item.children" :key="index"
-                                        href="#">{{item1.name}}</a></br>
+                                        @click="Nav_Click(item1,index1)">{{item1.name}}</a></br>
                                 </div>
                             </div>
 
@@ -142,16 +142,20 @@
                     }, {
                         id: 5,
                         name: '产品展示',
+                        path: 'product.html',
                         children: [
                             {
                                 id: 51,
                                 name: '节水洁具',
+                                path: 'product.html'
                             }, {
                                 id: 52,
                                 name: '治污设备',
+                                path: 'product1.html'
                             }, {
                                 id: 53,
                                 name: '水体净化',
+                                path: 'product2.html'
                             }
                         ]
                     }, {
@@ -189,7 +193,7 @@
                 },
 
 
-                iframe: 'index.html',
+                iframe: 'product.html',
             },
             // 创建
             created () {
@@ -203,6 +207,7 @@
             methods: {
                 // 菜单点击
                 Nav_Click (item, index) {
+                    console.log(item, index)
                     this.menu_active = index
                     this.iframe = item.path
                     // 动态修改iframe高度

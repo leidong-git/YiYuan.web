@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/about.css">
+
+    <!-- vue+element -->
+    <script src="javascript/vue+jquery+element/vue.min.js"></script>
+    <link href="javascript/vue+jquery+element/index.css" rel="stylesheet">
+    <script src="javascript/vue+jquery+element/index.js"></script>
+    <script src="javascript/vue+jquery+element/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="javascript/wow+animate/animate.css">
+    <script src="javascript/wow+animate/wow.min.js"></script>
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3964206_55w5azolxbe.css">
+
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- about -->
+        <div class="index_cont" style="background:url(images/about.jpg); background-size: cover;">
+            <div class="index_cont_nr">
+                <div class="about_title">
+                    <span>产品展示</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 标题菜单 -->
+        <div class="index_cont intellectual_menu">
+            <div class="index_cont_nr">
+                <div class="intellectual_title">
+                    <ul>
+                        <li @click="Product_Title_Clcik (item, index)" v-for="(item,index) in product_title"
+                            :class="product_title_active == index ? 'active':''">
+                            {{item.name}}
+                            <i class="iconfont icon-xuanzeqixiayige"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 公司简介 -->
+        <div class="index_cont product" v-for="(item,index) in product_data" :key="index">
+            <div class="index_cont_nr">
+                <div class="product_content">
+                    <ul>
+                        <li class="wow animate__fadeInUp" data-wow-duration="1s" data-wow-iteration="1">
+                            <div class="index_title" v-if="item.title != ''">
+                                <p class="index_title_xian_left"></p>
+                                <span class="index_title_name">{{item.title}}</span>
+                                <p class="index_title_xian_right"></p>
+                            </div>
+                            <div class="product_left wow animate__fadeInLeft" data-wow-duration="1s"
+                                data-wow-iteration="1">
+                                <p>{{item.detail}}</p>
+                            </div>
+                            <div class="product_right wow animate__fadeInRight" data-wow-duration="1s"
+                                data-wow-iteration="1">
+                                <span v-if="item.type == 0">{{item.text}}</span>
+                                <img v-if="item.type == 1" :src="`images/${item.img}`">
+                                <video v-if="item.type == 2" :src="`images/${item.video}`"
+                                    :poster="`images/${item.video_img}`" controls></video>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 购买 -->
+        <div class="index_cont about">
+            <div class="index_cont_nr">
+                <div class="purchase">
+                    <img src="images/icon.png">
+                    <p>
+                        <span>购买热线：{{purchase.phone}}</span>
+                        <span>售后热线：{{purchase.tel}}</span>
+                    </p>
+                    <el-button type="primary">在线选购</el-button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+                product_title_active: 0,
+                product_title: [
+                    {
+                        id: 'product1',
+                        name: '污水净化机',
+                    }, {
+                        id: 'product2',
+                        name: '污水循环机',
+                    }, {
+                        id: 'product3',
+                        name: '精密零件',
+                    }
+                ],
+
+                product_data: [
+                    {
+                        title: '产品介绍',
+                        type: 0,
+                        text: '相信科技普惠 用有温度的技术关爱弱势群体',
+                        detail: '我们关爱相对弱势群体，助力公益数字化。用科技更好地帮助老年人、儿童青少年、残障群体等，获得平等的发展机会。',
+                        video: 'wsd_20191008_3.mp4',
+                        video_img: 'video.png'
+                    }, {
+                        title: '产品功能',
+                        type: 2,
+                        detail: '“码上公益“在公益组织和技术开发者之间架起桥梁，是阿里云工程师自发建立的技术志愿服务平台，将公益需求与技术能力对接。目前，码上公益已入驻公益机构330多家，爱心极客共计6000多名。2021年，联合10家公益组织发起"码上公益营·低代码挑战"，招募300+ 技术公益志愿者，运用宜搭低代码为20 + 公益项目开发数字化管理应用，助力公益组织数字化转型。',
+                        video: 'wsd_20191008_3.mp4',
+                        video_img: 'video.png'
+                    }, {
+                        title: '产品细节',
+                        type: 1,
+                        detail: '2021年9月底，推出"字够大、页面简单"的长辈模式，并在用户端适老化改造，广场舞用品、钓鱼用品等老年用户喜欢的商品更容易被推荐。目前，已服务超过300万用户。阿里巴巴信息无障碍委员会致力于通过技术和业务手段，解决残疾人和老年人在 互联网使用过程中遇到的问题。',
+                        img: 'video.png'
+                    }, {
+                        title: '产品作用',
+                        type: 1,
+                        detail: '2020年11月，阿里安全、阿里巴巴公益、百度安全联合发起"绿网计划"公益，通过搜索框把公益宣导推送给特定消费者，唤起用户的合规意识和理性消费。同时，基于风险感知发起守护生命行动，联合警方、专业机构救助4400余名因抑郁症等产生轻生倾向或行为的人，宣导页心理咨询热线服务34000余人。2020年12月，"绿网计划"公益行动入选2020年市场监管领域社会共治优秀案例榜首。',
+                        img: '1.jpg'
+                    },
+                ],
+
+                purchase: {
+                    phone: '123456789',
+                    tel: '123-456-789'
+                }
+            },
+            // 创建
+            created () {
+
+            },
+            // 初始化完成
+            mounted () {
+                // 动画初始化
+                const wow = new WOW({
+                    boxClass: 'wow',
+                    animate: 'animated',
+                    offset: 0,
+                    live: false,
+                })
+                wow.init()
+            },
+            methods: {
+                // 菜单切换
+                Product_Title_Clcik (item, index) {
+                    console.log(item)
+                    this.product_title_active = index
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

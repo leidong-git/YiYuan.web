@@ -295,6 +295,7 @@ button {
     justify-content: center;
     border-radius: 5px;
     margin: 10px 10%;
+    font-size: 13px;
 }
 
 .menu_children a:hover {
@@ -382,6 +383,12 @@ button {
     width: 220px;
     margin-left: 20px;
     margin-top: 20px;
+    order: 1;
+}
+
+.content_left .foot_con_list.dan {
+    height: 30px;
+    order: 0;
 }
 
 .foot_con_list span {
@@ -391,6 +398,7 @@ button {
     color: #fff;
     font-size: 15px;
     display: inline-block;
+    cursor: pointer;
 }
 
 .foot_con_list a {
@@ -511,7 +519,7 @@ button {
     width: 100%;
     height: auto;
     float: left;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     padding-top: 30px;
 }
 
