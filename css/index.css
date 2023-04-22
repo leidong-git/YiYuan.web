@@ -28,11 +28,12 @@
 
 .banner .swiper-slide span {
     position: absolute;
-    font-size: 20px;
+    font-size: 35px;
     color: #fff;
     text-shadow: 0 0 5px #007aff;
     width: 1200px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .index_cont_nr .project_content {

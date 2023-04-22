@@ -17,6 +17,10 @@
     height: auto;
 }
 
+.about_hide {
+    margin-top: 70px;
+}
+
 .about .about_content {
     width: 100%;
     height: 400px;

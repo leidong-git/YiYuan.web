@@ -28,16 +28,16 @@
 <body>
     <div id="app" v-cloak>
         <!-- about -->
-        <div class="index_cont" style="background:url(images/about.jpg); background-size: cover;">
+        <!-- <div class="index_cont" style="background:url(images/about.jpg); background-size: cover;">
             <div class="index_cont_nr">
                 <div class="about_title">
                     <span>资质荣誉</span>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- 资质荣誉 -->
-        <div class="index_cont hornor_z">
+        <div class="index_cont hornor_z about_hide">
             <div class="index_cont_nr">
                 <div class="index_title wow animate__fadeInDown" data-wow-duration="1s" data-wow-iteration="1">
                     <p class="index_title_xian_left"></p>
@@ -70,22 +70,22 @@
             data: {
                 hornor: [
                     {
-                        img: '1.jpg',
+                        img: 'konw_icon.png',
                         detail: '***资质'
                     }, {
-                        img: '2.jpg',
+                        img: 'index_about2.png',
                         detail: '***资质'
                     }, {
-                        img: '3.jpg',
+                        img: 'index_about3.png',
                         detail: '***资质'
                     }, {
-                        img: '4.jpg',
+                        img: 'index_about4.png',
                         detail: '***资质'
                     }, {
-                        img: 'video.png',
+                        img: 'video.jpg',
                         detail: '***资质'
                     }, {
-                        img: 'icon.png',
+                        img: 'result_icon.png',
                         detail: '***资质'
                     }, {
                         img: 'about.jpg',
@@ -94,13 +94,13 @@
                 ],
 
                 hornor_list: [
-                    'images/1.jpg',
-                    'images/2.jpg',
-                    'images/3.jpg',
-                    'images/4.jpg',
-                    'images/video.png',
-                    'images/icon.png',
-                    'images/about.jpg',
+                    'images/konw_icon.png',
+                    'images/konw_icon.png',
+                    'images/konw_icon.png',
+                    'images/konw_icon.png',
+                    'images/konw_icon.png',
+                    'images/konw_icon.png',
+                    'images/konw_icon.png',
                 ],
             },
             // 创建
@@ -114,6 +114,7 @@
                     spaceBetween: 30,
                     centeredSlides: true,
                     rewind: true,
+                    initialSlide: 1,
                     autoplay: {
                         delay: 2500,
                         disableOnInteraction: false,
